@@ -4,236 +4,537 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - AI Researcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
             color: #333;
-            display: flex;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
-        .sidebar {
-            width: 280px;
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 30px;
-            height: 100vh;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .main-content {
-            margin-left: 280px;
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 40px;
-            width: calc(100% - 280px);
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .profile-pic {
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #34495e;
-            margin-bottom: 15px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: 300;
         }
-        .sidebar h1 {
-            margin: 0;
-            font-size: 1.8rem;
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .sidebar p {
-            font-size: 1rem;
-            color: #bdc3c7;
-        }
-        .sidebar nav {
-            width: 100%;
-            margin: 30px 0;
-        }
-        .sidebar nav a {
-            display: block;
-            color: #ecf0f1;
-            padding: 10px 0;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-bottom: 5px;
-        }
-        .sidebar nav a:hover, .sidebar nav a.active {
-            background: #34495e;
-        }
-        .cv-button {
-            display: inline-block;
-            background: #3498db;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+
+        .title {
+            font-size: 1.3rem;
+            color: #666;
             margin-bottom: 20px;
+            font-weight: 400;
         }
-        .cv-button:hover {
-            background: #2980b9;
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        .contact-info a {
-            color: #bdc3c7;
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
             text-decoration: none;
-            margin: 0 8px;
-            font-size: 1.2rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
-        .contact-info a:hover {
-            color: #fff;
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
         }
-        section {
-            padding: 20px;
-            margin-bottom: 20px;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #e0e0e0;
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #333;
+            border-bottom: 3px solid #667eea;
             padding-bottom: 10px;
-            margin-top: 0;
         }
-        .publication {
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
             margin-bottom: 20px;
         }
-        .publication-title {
-            font-weight: bold;
-            font-size: 1.1rem;
+
+        .research-interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
-        .authors {
+
+        .interest-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 10px 20px rgba(240, 147, 251, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .publication {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .publication:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .pub-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .pub-authors {
+            color: #666;
+            margin-bottom: 8px;
             font-style: italic;
         }
-        .authors strong {
-            font-style: normal;
-            font-weight: bold;
-        }
-        .venue {
-            color: #555;
-        }
-        .links a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: #3498db;
-            font-weight: bold;
-        }
-        .links a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #777;
-            font-size: 0.9rem;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
+
+        .pub-venue {
+            color: #667eea;
+            font-weight: 500;
             margin-bottom: 10px;
         }
-        #research ul li {
-            background: #f9f9f9;
-            padding: 10px;
-            border-radius: 3px;
+
+        .pub-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            padding: 5px 12px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .pub-link:hover {
+            background: #5a6fd8;
+        }
+
+        .education-item, .experience-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .edu-degree, .exp-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .edu-school, .exp-company {
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .edu-year, .exp-year {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .edu-description, .exp-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .profile-card, .section {
+                padding: 25px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .research-interests {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Profile Header -->
+        <div class="profile-card">
+            <div class="header">
+                <div class="profile-img">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1 class="name">Your Name</h1>
+                <p class="title">AI Researcher & PhD Candidate</p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@university.edu" class="contact-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=YOUR_ID" class="contact-link" target="_blank">
+                        <i class="fas fa-graduation-cap"></i> Google Scholar
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="./cv.pdf" class="contact-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i> CV
+                    </a>
+                </div>
+            </div>
+        </div>
 
-    <div class="sidebar">
-        <img src="profile.jpg" alt="Your Name" class="profile-pic">
-        <h1>[Your Name]</h1>
-        <p>AI Researcher</p>
+        <!-- About Section -->
+        <div class="section">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-text">
+                I am a passionate AI researcher with a focus on advancing the frontiers of artificial intelligence through innovative research and practical applications. My work spans multiple domains within AI, with particular expertise in machine learning, deep learning, and their applications to real-world problems.
+            </p>
+            <p class="about-text">
+                I am actively seeking opportunities for collaboration with leading researchers and institutions, as well as pursuing PhD opportunities to further advance my research in AI. I believe in the transformative power of AI to solve complex challenges and am committed to contributing meaningful research to the field.
+            </p>
+            
+            <div class="research-interests">
+                <div class="interest-card">
+                    <i class="fas fa-brain" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                    <div>Machine Learning</div>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-network-wired" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                    <div>Deep Learning</div>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-eye" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                    <div>Computer Vision</div>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-comments" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                    <div>Natural Language Processing</div>
+                </div>
+            </div>
+        </div>
 
-        <nav>
-            <a href="#about" class="active">About Me</a>
-            <a href="#research">Research</a>
-            <a href="#publications">Publications</a>
-            <a href="#projects">Projects</a>
-        </nav>
+        <!-- Publications Section -->
+        <div class="section">
+            <h2 class="section-title">Selected Publications</h2>
+            
+            <div class="publication">
+                <div class="pub-title">Novel Approaches to Deep Learning Architecture Optimization</div>
+                <div class="pub-authors"><strong>Your Name</strong>, Co-Author Name, Another Author</div>
+                <div class="pub-venue">Conference on Neural Information Processing Systems (NeurIPS) 2024</div>
+                <div class="pub-links">
+                    <a href="#" class="pub-link">Paper</a>
+                    <a href="#" class="pub-link">Code</a>
+                    <a href="#" class="pub-link">Slides</a>
+                </div>
+            </div>
 
-        <a href="CV.pdf" class="cv-button">Download CV</a>
+            <div class="publication">
+                <div class="pub-title">Efficient Transfer Learning for Computer Vision Tasks</div>
+                <div class="pub-authors"><strong>Your Name</strong>, Collaborator Name</div>
+                <div class="pub-venue">International Conference on Machine Learning (ICML) 2024</div>
+                <div class="pub-links">
+                    <a href="#" class="pub-link">Paper</a>
+                    <a href="#" class="pub-link">Code</a>
+                </div>
+            </div>
 
-        <div class="contact-info">
-            <a href="mailto:your.email@example.com" title="Email">[E]</a>
-            <a href="https://github.com/your-username" title="GitHub">[G]</a>
-            <a href="#" title="Google Scholar">[S]</a>
-            <a href="#" title="LinkedIn">[L]</a>
+            <div class="publication">
+                <div class="pub-title">Advancing Natural Language Understanding with Transformer Models</div>
+                <div class="pub-authors"><strong>Your Name</strong>, Research Team</div>
+                <div class="pub-venue">Association for Computational Linguistics (ACL) 2023</div>
+                <div class="pub-links">
+                    <a href="#" class="pub-link">Paper</a>
+                    <a href="#" class="pub-link">Demo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <div class="edu-degree">Master of Science in Computer Science</div>
+                <div class="edu-school">Your University</div>
+                <div class="edu-year">2022 - 2024</div>
+                <div class="edu-description">
+                    Specialized in Artificial Intelligence and Machine Learning. Thesis: "Advanced Neural Network Architectures for Complex Problem Solving". GPA: 3.9/4.0
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="edu-degree">Bachelor of Science in Computer Science</div>
+                <div class="edu-school">Your Undergraduate University</div>
+                <div class="edu-year">2018 - 2022</div>
+                <div class="edu-description">
+                    Magna Cum Laude. Relevant coursework: Data Structures, Algorithms, Machine Learning, Statistics, Linear Algebra. Senior Project: AI-powered recommendation system.
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="section">
+            <h2 class="section-title">Research Experience</h2>
+            
+            <div class="experience-item">
+                <div class="exp-title">Research Assistant</div>
+                <div class="exp-company">AI Research Lab, Your University</div>
+                <div class="exp-year">2023 - Present</div>
+                <div class="exp-description">
+                    Leading research on novel deep learning architectures for computer vision tasks. Developed and implemented state-of-the-art models that achieved 15% improvement in accuracy over existing methods. Collaborated with interdisciplinary teams and published findings in top-tier conferences.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-title">Machine Learning Intern</div>
+                <div class="exp-company">Tech Company / Research Institute</div>
+                <div class="exp-year">Summer 2023</div>
+                <div class="exp-description">
+                    Developed and deployed machine learning models for large-scale data analysis. Worked on natural language processing projects and contributed to open-source ML libraries. Gained experience with production-level ML systems and cloud computing platforms.
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills">
+                <div class="skill-category">
+                    <div class="skill-title">Programming Languages</div>
+                    <div class="skill-list">Python, R, C++, Java, JavaScript</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-title">ML/DL Frameworks</div>
+                    <div class="skill-list">PyTorch, TensorFlow, Keras, Scikit-learn, Hugging Face</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-title">Tools & Platforms</div>
+                    <div class="skill-list">Git, Docker, AWS, Google Cloud, Jupyter, MLflow</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-title">Specializations</div>
+                    <div class="skill-list">Computer Vision, NLP, Deep Learning, Statistical Analysis</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2 class="cta-title">Let's Collaborate</h2>
+            <p class="cta-text">
+                I'm actively seeking research collaborations and PhD opportunities. 
+                If you're interested in working together or learning more about my research, I'd love to hear from you.
+            </p>
+            <a href="mailto:your.email@university.edu" class="cta-button">
+                Get In Touch
+            </a>
         </div>
     </div>
 
-    <div class="main-content">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Hello! I am an AI Researcher passionate about [Your specific interests, e.g., reinforcement learning, natural language processing, computer vision]. I am currently seeking opportunities for [e.g., a Ph.D. program, postdoctoral research, industry collaboration]. My goal is to leverage artificial intelligence to solve complex problems and contribute to the frontiers of knowledge.
-            </p>
-            <p>
-                Here you can add more about your background, your academic journey, what motivates you, and what kind of opportunities you are looking for.
-            </p>
-        </section>
+    <script>
+        // Add smooth scrolling for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-        <section id="research">
-            <h2>Research Interests</h2>
-            <ul>
-                <li><strong>Primary Interest 1:</strong> A brief description of your primary research interest. Why it's important and what you have done.</li>
-                <li><strong>Primary Interest 2:</strong> A brief description of your second research interest.</li>
-                <li><strong>Secondary Interest 1:</strong> A brief description of a secondary interest.</li>
-            </ul>
-        </section>
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        <section id="publications">
-            <h2>Publications</h2>
-            <div class="publication">
-                <p class="publication-title">Title of Your First Amazing Paper</p>
-                <p class="authors"><strong>[Your Name]</strong>, Co-author 1, Co-author 2</p>
-                <p class="venue">Conference or Journal Name, Year</p>
-                <p class="links">
-                    <a href="#">[PDF]</a>
-                    <a href="#">[Code]</a>
-                    <a href="#">[Project Page]</a>
-                </p>
-            </div>
-            <div class="publication">
-                <p class="publication-title">Title of Your Second Groundbreaking Work</p>
-                <p class="authors"><strong>[Your Name]</strong>, Co-author 3</p>
-                <p class="venue">Workshop at Major Conference, Year</p>
-                <p class="links">
-                    <a href="#">[PDF]</a>
-                    <a href="#">[Slides]</a>
-                </p>
-            </div>
-        </section>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <p class="publication-title">Project Title 1</p>
-                <p>A short description of the project. What was the goal? What was your role? What technologies did you use?</p>
-                <p class="links">
-                    <a href="#">[GitHub]</a>
-                    <a href="#">[Demo]</a>
-                </p>
-            </div>
-             <div class="project">
-                <p class="publication-title">Project Title 2</p>
-                <p>A short description of another project.</p>
-                <p class="links">
-                    <a href="#">[GitHub]</a>
-                </p>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2024 [Your Name]. All Rights Reserved.</p>
-        </footer>
-    </div>
-
+        // Observe all sections for animation
+        document.querySelectorAll('.section, .profile-card').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
 </body>
-</html> 
+</html>
