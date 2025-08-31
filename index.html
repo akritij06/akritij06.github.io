@@ -1,294 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - AI Researcher</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akriti Jain – Academic Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      background: #fafafa;
+      color: #333;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    /* Sidebar */
+    .sidebar {
+      background: white;
+      padding: 30px 25px;
+      width: 280px;
+      min-height: 100vh;
+      border-right: 1px solid #eee;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      text-align: center;
+    }
 
-        .header {
-            text-align: center;
-            background: white;
-            padding: 40px 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    .sidebar .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #eee;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-        .name {
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #2c3e50;
-        }
+    .sidebar .name {
+      font-size: 1.6em;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
 
-        .title {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-        }
+    .sidebar .title {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 25px;
+    }
 
-        .contact {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+    .contact-info {
+      margin-bottom: 25px;
+      text-align: left;
+    }
 
-        .contact a {
-            color: #3498db;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #3498db;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
 
-        .contact a:hover {
-            background: #3498db;
-            color: white;
-        }
+    .contact-item i {
+      width: 20px;
+      margin-right: 10px;
+      color: #0077cc;
+    }
 
-        .section {
-            background: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    .contact-item a {
+      color: #333;
+      text-decoration: none;
+    }
 
-        .section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
+    .contact-item a:hover {
+      color: #0077cc;
+    }
 
-        .about p {
-            margin-bottom: 15px;
-            color: #555;
-        }
+    .sidebar nav ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
 
-        .interests {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
+    .sidebar nav ul li {
+      margin-bottom: 12px;
+    }
 
-        .interest-tag {
-            background: #e8f4fd;
-            color: #2980b9;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-        }
+    .sidebar nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-        .news-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
+    .sidebar nav ul li a:hover,
+    .sidebar nav ul li a.active {
+      color: #0077cc;
+    }
 
-        .news-item:last-child {
-            border-bottom: none;
-        }
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      background: white;
+      min-height: 100vh;
+      padding: 40px;
+      max-width: 900px;
+    }
 
-        .news-date {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-bottom: 5px;
-        }
+    .content-section {
+      margin-bottom: 60px;
+      max-width: 750px;
+    }
 
-        .news-content {
-            color: #555;
-        }
+    .content-section h2 {
+      font-size: 1.5em;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      color: #0077cc;
+    }
 
-        .publication {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
+    .content-section p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
 
-        .publication:last-child {
-            border-bottom: none;
-        }
+    /* Recent Updates */
+    .news-item {
+      margin-bottom: 15px;
+      padding-left: 10px;
+      border-left: 3px solid #0077cc;
+    }
 
-        .pub-title {
-            font-weight: 500;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
+    .news-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0077cc;
+      margin-bottom: 5px;
+    }
 
-        .pub-venue {
-            color: #3498db;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-        }
+    /* Publications */
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+    }
 
-        .pub-authors {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
+    .pub-list li {
+      margin-bottom: 15px;
+    }
 
-        .education-item {
-            margin-bottom: 20px;
-        }
+    .pub-list a {
+      color: #0077cc;
+      text-decoration: none;
+    }
 
-        .edu-degree {
-            font-weight: 500;
-            color: #2c3e50;
-        }
+    /* Experience */
+    .exp-item {
+      margin-bottom: 20px;
+      padding-left: 10px;
+      border-left: 3px solid #0077cc;
+    }
 
-        .edu-school {
-            color: #3498db;
-            font-size: 0.95rem;
-        }
+    .exp-title {
+      font-weight: 600;
+    }
 
-        .edu-year {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
+    .exp-org {
+      color: #0077cc;
+      font-weight: 500;
+    }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            
-            .header {
-                padding: 30px 15px;
-            }
-            
-            .section {
-                padding: 20px;
-            }
-            
-            .contact {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .name {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    .exp-year {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+        box-shadow: none;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      .main-content {
+        max-width: 100%;
+        padding: 20px;
+      }
+
+      .contact-info, .sidebar nav ul {
+        text-align: center;
+      }
+
+      .contact-item {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <h1 class="name">Your Name</h1>
-        <p class="title">AI Researcher</p>
-        <div class="contact">
-            <a href="mailto:your.email@university.edu">Email</a>
-            <a href="https://github.com/yourusername">GitHub</a>
-            <a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a>
-            <a href="./cv.pdf">CV</a>
-        </div>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+    <h1 class="name">Akriti Jain</h1>
+    <p class="title">AI Researcher | Graduate Student</p>
+
+    <div class="contact-info">
+      <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:akriti@example.com">akriti@example.com</a></div>
+      <div class="contact-item"><i class="fab fa-github"></i> <a href="https://github.com/akriti">GitHub</a></div>
+      <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/akritijain">LinkedIn</a></div>
+      <div class="contact-item"><i class="fas fa-file-pdf"></i> <a href="./cv.pdf">Download CV</a></div>
     </div>
 
-    <!-- About -->
-    <div class="section about">
-        <h2>About</h2>
-        <p>I'm an AI researcher passionate about advancing machine learning and its applications. I'm actively seeking PhD opportunities and research collaborations.</p>
-        <p>My work focuses on developing novel approaches to solve complex problems using artificial intelligence.</p>
-        
-        <div class="interests">
-            <span class="interest-tag">Machine Learning</span>
-            <span class="interest-tag">Deep Learning</span>
-            <span class="interest-tag">Computer Vision</span>
-            <span class="interest-tag">NLP</span>
-        </div>
-    </div>
+    <nav>
+      <ul>
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#news">Updates</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-    <!-- News -->
-    <div class="section">
-        <h2>Recent Updates</h2>
-        
-        <div class="news-item">
-            <div class="news-date">December 2024</div>
-            <div class="news-content">Paper accepted at NeurIPS 2024! Looking forward to presenting our work on neural architecture optimization.</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-date">November 2024</div>
-            <div class="news-content">Started new research collaboration with XYZ Lab on multimodal learning approaches.</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-date">October 2024</div>
-            <div class="news-content">Gave invited talk at AI Research Symposium on "Future Directions in Deep Learning".</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-date">September 2024</div>
-            <div class="news-content">Released open-source implementation of our latest model on GitHub.</div>
-        </div>
-    </div>
+  <!-- Main Content -->
+  <main class="main-content">
+    <section id="about" class="content-section">
+      <h2>About</h2>
+      <p>
+        I am a graduate student in Computer Science with a focus on Artificial Intelligence and Natural Language Processing. 
+        My work explores <strong>document understanding, decision-making, and retrieval-augmented generation</strong>.
+      </p>
+      <p>
+        I am currently a Research Associate at Adobe Research, Bangalore, where I work on 
+        large language model optimization and multi-document decision-making.
+      </p>
+    </section>
 
-    <!-- Publications -->
-    <div class="section">
-        <h2>Selected Publications</h2>
-        
-        <div class="publication">
-            <div class="pub-title">Novel Approaches to Deep Learning Architecture Optimization</div>
-            <div class="pub-venue">NeurIPS 2024</div>
-            <div class="pub-authors">Your Name, Co-Author Name</div>
-        </div>
+    <section id="news" class="content-section">
+      <h2>Recent Updates</h2>
+      <div class="news-item">
+        <div class="news-date">Aug 2025</div>
+        <div>Submitted manuscript on active preference elicitation for decision-making.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jul 2025</div>
+        <div>Presented work on teaching small LLMs at Adobe Research Offsite.</div>
+      </div>
+    </section>
 
-        <div class="publication">
-            <div class="pub-title">Efficient Transfer Learning for Computer Vision</div>
-            <div class="pub-venue">ICML 2024</div>
-            <div class="pub-authors">Your Name, Collaborator Name</div>
-        </div>
+    <section id="research" class="content-section">
+      <h2>Research</h2>
+      <p>
+        My research interests lie at the intersection of AI, NLP, and decision-support systems. 
+        I focus on:
+      </p>
+      <ul>
+        <li>Retrieval-Augmented Generation (RAG)</li>
+        <li>Compositional reasoning over documents</li>
+        <li>Efficient small language model steering</li>
+        <li>Human-AI collaboration in decision making</li>
+      </ul>
+    </section>
 
-        <div class="publication">
-            <div class="pub-title">Advancing NLP with Transformer Models</div>
-            <div class="pub-venue">ACL 2023</div>
-            <div class="pub-authors">Your Name, Research Team</div>
-        </div>
-    </div>
+    <section id="publications" class="content-section">
+      <h2>Publications</h2>
+      <ul class="pub-list">
+        <li>
+          <strong>Guiding User Decisions through Active Preference Elicitation from Unstructured Documents</strong> (2025)<br/>
+          <em>In Submission</em>
+        </li>
+        <li>
+          <strong>Teaching Small LLMs with Big LLMs</strong> (2024)<br/>
+          Presented at Adobe Research Offsite.
+        </li>
+      </ul>
+    </section>
 
-    <!-- Education -->
-    <div class="section">
-        <h2>Education</h2>
-        
-        <div class="education-item">
-            <div class="edu-degree">M.S. Computer Science</div>
-            <div class="edu-school">Your University</div>
-            <div class="edu-year">2022 - 2024</div>
-        </div>
+    <section id="experience" class="content-section">
+      <h2>Experience</h2>
+      <div class="exp-item">
+        <div class="exp-title">Research Associate</div>
+        <div class="exp-org">Adobe Research, Bangalore</div>
+        <div class="exp-year">2023 – Present</div>
+        <div>Working on large language model optimization, steering, and decision-making pipelines.</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-title">Graduate Teaching Assistant</div>
+        <div class="exp-org">Your University</div>
+        <div class="exp-year">2022 – 2023</div>
+        <div>Assisted in courses on Machine Learning and NLP, mentoring graduate students.</div>
+      </div>
+    </section>
 
-        <div class="education-item">
-            <div class="edu-degree">B.S. Computer Science</div>
-            <div class="edu-school">Your Undergraduate University</div>
-            <div class="edu-year">2018 - 2022</div>
-        </div>
-    </div>
+    <section id="contact" class="content-section">
+      <h2>Contact</h2>
+      <p>
+        📧 <a href="mailto:akriti@example.com">akriti@example.com</a><br/>
+        🔗 <a href="https://github.com/akriti">GitHub</a><br/>
+        🔗 <a href="https://linkedin.com/in/akritijain">LinkedIn</a>
+      </p>
+    </section>
+  </main>
 
-    <!-- Contact -->
-    <div class="section">
-        <h2>Collaboration</h2>
-        <p>I'm actively seeking PhD opportunities and research collaborations. If you're interested in working together or have opportunities available, please feel free to reach out!</p>
-        <p style="margin-top: 15px;">
-            <a href="mailto:your.email@university.edu" style="color: #3498db; text-decoration: none; font-weight: 500;">📧 your.email@university.edu</a>
-        </p>
-    </div>
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Active link highlight
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.sidebar nav ul li a');
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 200;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
