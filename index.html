@@ -122,23 +122,9 @@
       color: #0077cc;
     }
 
-    .content-section p {
+    .content-section p, .content-section li {
       line-height: 1.6;
-      margin-bottom: 15px;
-    }
-
-    /* Recent Updates */
-    .news-item {
-      margin-bottom: 15px;
-      padding-left: 10px;
-      border-left: 3px solid #0077cc;
-    }
-
-    .news-date {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #0077cc;
-      margin-bottom: 5px;
+      margin-bottom: 12px;
     }
 
     /* Publications */
@@ -177,34 +163,6 @@
       color: #666;
       margin-bottom: 5px;
     }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        min-height: auto;
-        box-shadow: none;
-        border-right: none;
-        border-bottom: 1px solid #eee;
-      }
-
-      .main-content {
-        max-width: 100%;
-        padding: 20px;
-      }
-
-      .contact-info, .sidebar nav ul {
-        text-align: center;
-      }
-
-      .contact-item {
-        justify-content: center;
-      }
-    }
   </style>
 </head>
 <body>
@@ -212,11 +170,11 @@
   <aside class="sidebar">
     <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
     <h1 class="name">Akriti Jain</h1>
-    <p class="title">AI Researcher | Graduate Student</p>
+    <p class="title">Research Associate, Adobe Research<br/>B.Tech IIT Roorkee (2024)</p>
 
     <div class="contact-info">
-      <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:akriti@example.com">akriti@example.com</a></div>
-      <div class="contact-item"><i class="fab fa-github"></i> <a href="https://github.com/akriti">GitHub</a></div>
+      <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:akriti_j@ee.iitr.ac.in">akriti_j@ee.iitr.ac.in</a></div>
+      <div class="contact-item"><i class="fab fa-github"></i> <a href="https://github.com/akriitjain">GitHub</a></div>
       <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/akritijain">LinkedIn</a></div>
       <div class="contact-item"><i class="fas fa-file-pdf"></i> <a href="./cv.pdf">Download CV</a></div>
     </div>
@@ -224,10 +182,11 @@
     <nav>
       <ul>
         <li><a href="#about" class="active">About</a></li>
-        <li><a href="#news">Updates</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -238,51 +197,39 @@
     <section id="about" class="content-section">
       <h2>About</h2>
       <p>
-        I am a graduate student in Computer Science with a focus on Artificial Intelligence and Natural Language Processing. 
-        My work explores <strong>document understanding, decision-making, and retrieval-augmented generation</strong>.
+        I am currently a <strong>Research Associate at Adobe Research</strong>, where I work on large language models, retrieval-augmented generation, and AI-assisted decision making. 
       </p>
       <p>
-        I am currently a Research Associate at Adobe Research, Bangalore, where I work on 
-        large language model optimization and multi-document decision-making.
+        I graduated in 2024 with a <strong>B.Tech. in Electrical Engineering from IIT Roorkee</strong>. 
+        My broader interests span multimodal content generation, LLM optimization, and information reliability in AI systems.
       </p>
-    </section>
-
-    <section id="news" class="content-section">
-      <h2>Recent Updates</h2>
-      <div class="news-item">
-        <div class="news-date">Aug 2025</div>
-        <div>Submitted manuscript on active preference elicitation for decision-making.</div>
-      </div>
-      <div class="news-item">
-        <div class="news-date">Jul 2025</div>
-        <div>Presented work on teaching small LLMs at Adobe Research Offsite.</div>
-      </div>
     </section>
 
     <section id="research" class="content-section">
-      <h2>Research</h2>
-      <p>
-        My research interests lie at the intersection of AI, NLP, and decision-support systems. 
-        I focus on:
-      </p>
+      <h2>Research Interests</h2>
       <ul>
-        <li>Retrieval-Augmented Generation (RAG)</li>
-        <li>Compositional reasoning over documents</li>
-        <li>Efficient small language model steering</li>
-        <li>Human-AI collaboration in decision making</li>
+        <li>Large Language Models (LLMs) and retrieval-augmented generation</li>
+        <li>Decision-support and multi-document reasoning</li>
+        <li>Input-adaptive LLM optimization and compression</li>
+        <li>Uncertainty estimation & reliability in AI systems</li>
+        <li>Multimodal content generation</li>
       </ul>
     </section>
 
     <section id="publications" class="content-section">
       <h2>Publications</h2>
       <ul class="pub-list">
-        <li>
-          <strong>Guiding User Decisions through Active Preference Elicitation from Unstructured Documents</strong> (2025)<br/>
-          <em>In Submission</em>
+        <li><strong>Doc2Chart: Intent-Driven Zero-Shot Chart Generation from Documents</strong><br/> 
+          <em>EMNLP 2025 (Main)</em>. Akriti Jain, Pritika Ramu, Aparna Garimella, Apoorv Saxena. [<a href="https://arxiv.org">Arxiv</a>]
         </li>
-        <li>
-          <strong>Teaching Small LLMs with Big LLMs</strong> (2024)<br/>
-          Presented at Adobe Research Offsite.
+        <li><strong>FiRST: Finetuning Router-Selective Transformers for Input-Adaptive Latency Reduction</strong><br/>
+          <em>EMNLP 2025 (Findings)</em>. Akriti Jain*, Saransh Sharma*, Koyel Mukherjee, Soumyabrata Pal. [<a href="https://arxiv.org">Arxiv</a>]
+        </li>
+        <li><strong>Modeling Contextual Passage Utility for Multihop Question Answering</strong><br/>
+          <em>Under Review, ACL ARR 2025</em>. Akriti Jain, Aparna Garimella.
+        </li>
+        <li><strong>Knowing What’s Missing: Assessing Information Sufficiency in Question Answering</strong><br/>
+          <em>Under Review, AAAI 2026</em>. Akriti Jain, Aparna Garimella.
         </li>
       </ul>
     </section>
@@ -291,58 +238,52 @@
       <h2>Experience</h2>
       <div class="exp-item">
         <div class="exp-title">Research Associate</div>
-        <div class="exp-org">Adobe Research, Bangalore</div>
-        <div class="exp-year">2023 – Present</div>
-        <div>Working on large language model optimization, steering, and decision-making pipelines.</div>
+        <div class="exp-org">Adobe Research</div>
+        <div class="exp-year">2024 – Present</div>
+        <div>Working on LLM optimization, retrieval-augmented decision making, and multi-document reasoning systems.</div>
       </div>
       <div class="exp-item">
-        <div class="exp-title">Graduate Teaching Assistant</div>
-        <div class="exp-org">Your University</div>
-        <div class="exp-year">2022 – 2023</div>
-        <div>Assisted in courses on Machine Learning and NLP, mentoring graduate students.</div>
+        <div class="exp-title">Research Intern</div>
+        <div class="exp-org">Adobe Research, Big Data Experience Lab</div>
+        <div class="exp-year">May – July 2023</div>
+        <div>Worked on simplified design representations for LLM compatibility; fine-tuned multimodal LLMs using BERT-like masking strategies.</div>
       </div>
+      <div class="exp-item">
+        <div class="exp-title">Electrical Design Intern</div>
+        <div class="exp-org">Arunoday Innovations and Research Pvt. Ltd.</div>
+        <div class="exp-year">2022</div>
+        <div>Worked on low-cost automated mobile robots; designed backup circuitry using ultrasonic sensors for obstacle detection.</div>
+      </div>
+    </section>
+
+    <section id="awards" class="content-section">
+      <h2>Awards & Achievements</h2>
+      <ul>
+        <li>Department Rank 1, Electrical Engineering, IIT Roorkee</li>
+        <li>AIR CMDR Shyam Chand Mehra Scholarship (2021–22, 2022–23)</li>
+        <li>Silver Medal – Low Light Image Restoration Challenge, Techshilla 2023</li>
+        <li>Rapid Chess (Girls) Club Open – 1st Position (2022, 2023)</li>
+        <li>JEE Advanced 2020: AIR 4093 | JEE Main 2020: AIR 4249</li>
+      </ul>
+    </section>
+
+    <section id="education" class="content-section">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>B.Tech Electrical Engineering</strong>, IIT Roorkee (2020 – 2024). CGPA: 9.35/10.00, Department Rank 1.</li>
+        <li><strong>Class XII</strong>, D.A.V Public School, Delhi (2020) – 97.2%.</li>
+        <li><strong>Class X</strong>, DPS Ghaziabad (2018) – 97.8%.</li>
+      </ul>
     </section>
 
     <section id="contact" class="content-section">
       <h2>Contact</h2>
       <p>
-        📧 <a href="mailto:09akritijain@gmail.com">akriti@example.com</a><br/>
-        <!-- 🔗 <a href="https://github.com/akriti">GitHub</a><br/> -->
-        🔗 <a href="https://www.linkedin.com/in/akriti-jain1/">LinkedIn</a>
+        📧 <a href="mailto:09akritijain@gmail.com">09akritijain@gmail.com</a><br/>
+        🔗 <a href="https://linkedin.com/in/akritijain1">LinkedIn</a><br/>
+        <!-- 💻 <a href="https://github.com/akriitjain">GitHub</a> -->
       </p>
     </section>
   </main>
-
-  <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Active link highlight
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.sidebar nav ul li a');
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 200;
-        if (scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-  </script>
 </body>
 </html>
